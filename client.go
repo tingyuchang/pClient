@@ -125,7 +125,7 @@ func Listusers() ([]Userdata, error) {
 		return nil, err
 	}
 	defer db.Close()
-	queryStatement := fmt.Sprintf("SELECT id, username, name, surname, description FROM users, userdata WHER user.id = userdata.userid")
+	queryStatement := fmt.Sprintf("SELECT id, username, name, surname, description FROM users, userdata WHERE users.id = userdata.userid")
 
 	rows, err := db.Query(queryStatement)
 
