@@ -35,7 +35,7 @@ func exists(username string) int {
 	defer db.Close()
 
 	userId := -1
-	queryString := fmt.Sprintf(`SELECT id FROM Users WHERE username=%s`, username)
+	queryString := fmt.Sprintf(`SELECT id FROM users WHERE username='%s'`, username)
 	rows, err := db.Query(queryString)
 	for rows.Next() {
 		var id int
@@ -144,7 +144,7 @@ func Listusers() ([]Userdata, error) {
 			return nil, err
 		}
 		temp := Userdata{
-			id, name, surname, description,
+			id, username, name, surname, description,
 		}
 		data = append(data, temp)
 	}

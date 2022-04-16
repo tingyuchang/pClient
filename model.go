@@ -7,6 +7,7 @@ type User struct {
 
 type Userdata struct {
 	ID          int
+	UserName    string
 	Name        string
 	Surname     string
 	Description string
